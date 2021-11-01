@@ -30,12 +30,12 @@ exports.signup = (req, res) => {
                          error: err
                     })
                }
-               /* res.json({
-                    message: 'Signup success! Please Signin.'
-               }) */
                res.json({
+                    message: 'Signup success! Please Signin.'
+               }) 
+               /* res.json({
                     user: success
-               })
+               }) */
           })
 
      })
