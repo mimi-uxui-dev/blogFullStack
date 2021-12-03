@@ -1,2 +1,11 @@
-const Index = () => <h2>123</h2>
+import Layout from "../components/Layout"
+
+function Index() {
+    return (
+        <Layout>
+            <h1>What's upppp</h1>
+        </Layout>
+    )
+}
+
 export default Index
