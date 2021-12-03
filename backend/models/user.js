@@ -58,7 +58,7 @@ userSchema.virtual('password')
           this.salt = this.makeSalt()
           // encrypt password
           this.hashed_password = this.encryptPassword(password)
-     } )
+     })
      .get(function(){
           return this._password
      })
@@ -66,7 +66,6 @@ userSchema.virtual('password')
 userSchema.methods = {
      authenticate: function(plainText){
           return this.encryptPassword(plainText) === this.hashed_password
-
      },
      encryptPassword: function(password){
           if(!password) return ''
