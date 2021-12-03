@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema({
 }, { timeStamp: true })
 
 userSchema.virtual('password')
-     .set( function(password){
+     .set(function (password) {
           // Create a temp var called _password
           this._password = password
           // generate salt 
@@ -59,26 +59,26 @@ userSchema.virtual('password')
           // encrypt password
           this.hashed_password = this.encryptPassword(password)
      })
-     .get(function(){
+     .get(function () {
           return this._password
      })
 
 userSchema.methods = {
-     authenticate: function(plainText){
+     authenticate: function (plainText) {
           return this.encryptPassword(plainText) === this.hashed_password
      },
-     encryptPassword: function(password){
-          if(!password) return ''
-          try{
+     encryptPassword: function (password) {
+          if (!password) return ''
+          try {
                return crypto
                     .createHmac('sha1', this.salt)
                     .update(password)
                     .digest('hex')
-          }catch(e){
+          } catch (e) {
                return ''
           }
      },
-     makeSalt: function(){
+     makeSalt: function () {
           return Math.round(new Date().valueOf() * Math.random()) + ''
      }
 }
