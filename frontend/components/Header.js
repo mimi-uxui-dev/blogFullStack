@@ -1,5 +1,7 @@
 import React from 'react'
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap'
+import { APP_NAME } from '../config'
+
 function Header() {
     return (
         <div>
@@ -9,7 +11,7 @@ function Header() {
                 light
             >
                 <NavbarBrand href="/">
-                    reactstrap
+                    {APP_NAME}
                 </NavbarBrand>
                 <NavbarToggler onClick={function noRefCheck() { }} />
                 <Collapse navbar>
