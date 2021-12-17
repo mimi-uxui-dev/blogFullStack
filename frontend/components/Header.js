@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap'
 import { APP_NAME } from '../config'
+import Link from 'next/link'
 
 function Header() {
+    const [isOpen, setIsOpen] = useState(false)
+    const toggle = () => setIsOpen(!isOpen)
     return (
         <div>
             <Navbar
@@ -10,24 +13,38 @@ function Header() {
                 expand="md"
                 light
             >
-                <NavbarBrand href="/">
-                    {APP_NAME}
-                </NavbarBrand>
-                <NavbarToggler onClick={function noRefCheck() { }} />
-                <Collapse navbar>
+
+                <Link href="/">
+                    <div className="navbar-brand">
+                        <a>{APP_NAME}</a>
+                    </div>
+                </Link>
+                <NavbarToggler onClick={toggle} />
+                <Collapse isOpen={isOpen} navbar>
                     <Nav
                         className="me-auto"
                         navbar
                     >
                         <NavItem>
-                            <NavLink href="/components/">
-                                Components
-                            </NavLink>
+                            <Link href="/">
+                                <NavLink>
+                                    Home
+                                </NavLink>
+                            </Link>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">
-                                GitHub
-                            </NavLink>
+                            <Link href="/signin">
+                                <NavLink>
+                                    Sign In
+                                </NavLink>
+                            </Link>
+                        </NavItem>
+                        <NavItem>
+                            <Link href="/signup">
+                                <NavLink>
+                                    Sign UP
+                                </NavLink>
+                            </Link>
                         </NavItem>
                     </Nav>
                 </Collapse>

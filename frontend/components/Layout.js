@@ -1,12 +1,15 @@
+import Header from "../components/Header"
+import 'bootstrap/dist/css/bootstrap.css'
 
 function Layout({ children }) {
     return (
         <div>
-            <div>Header</div>
+            <Header />
+
             <div>
                 {children}
             </div>
-            <div>Footer</div>
+
 
         </div>
     )
