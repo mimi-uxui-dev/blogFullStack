@@ -22,11 +22,13 @@ function SignupComponent() {
 
         const user = { name, email, password }
 
-        try {
-            signup(user)
-        } catch (error) {
-            console.log("err try-catch ", error);
-        }
+        signup(user).then(data => {
+            if (data.error) {
+                setValues({ ...values, error: data.error, loading: false })
+            } else {
+                setValues({ ...values, name: '', email: '', password: '', error: '', loading: false, message: data.message, showForm: false })
+            }
+        })
 
     }
 
