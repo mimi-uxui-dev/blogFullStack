@@ -36,6 +36,10 @@ function SignupComponent() {
         setValues({ ...values, error: false, [name]: e.target.value })
     }
 
+    const showLoading = () => (loading ? <div className='alert alert-info'>Loading ... </div> : "")
+    const showError = () => (error ? <div className='alert alert-danger'>{error} </div> : "")
+    const showMessage = () => (message ? <div className='alert alert-info'> {message} </div> : "")
+
     const signupForm = () => {
         return (
             <Form onSubmit={handleSubmit} style={{ maxWidth: '360px' }}>
@@ -67,9 +71,13 @@ function SignupComponent() {
         )
     }
 
-    return (
-        signupForm()
-    )
+    return <>
+        {showError()}
+        {showLoading()}
+        {showMessage()}
+        {showForm && signupForm()}
+    </>
+
 }
 
 export default SignupComponent
