@@ -11,7 +11,7 @@ function SignupComponent() {
         error: '',
         loading: false,
         message: '',
-        showForm: ''
+        showForm: true
     })
 
     const { name, email, password, error, loading, message, showForm } = values
