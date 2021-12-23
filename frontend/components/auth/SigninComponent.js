@@ -1,7 +1,7 @@
 import { Form, Input, Button } from 'reactstrap'
 import { useState } from 'react'
 import { signin } from '../../actions/auth'
-import { Router } from 'next/router'
+import Router from 'next/router'
 
 
 function SigninComponent() {
